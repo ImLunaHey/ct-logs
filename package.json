@@ -1,5 +1,6 @@
 {
   "name": "ct-logs",
+  "license": "MIT",
   "scripts": {
     "build": "npx tsup ./src/index.ts --format=esm",
     "start": "node ./dist/index.mjs"
