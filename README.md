@@ -1,15 +1,19 @@
 # ct-logs
 
-To install dependencies:
+Subscribes to the [CertStream](https://certstream.calidog.io/) feed —
+every new TLS certificate issued globally, scraped from Certificate
+Transparency logs in real time — and forwards each one to
+[Axiom](https://axiom.co) for storage and querying.
+
+## Run it
 
 ```bash
-bun install
+npm install
+AXIOM_TOKEN=…  AXIOM_ORG_ID=…  AXIOM_DATASET=…  npm run build && npm start
 ```
 
-To run:
+## Deploy
 
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v0.6.7. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+Deployed via [SST](https://sst.dev) v3 to a Linode VM (`sst.config.ts`).
+Builds a Docker image, pushes to `ghcr.io/imlunahey/ct-logs`, and runs it
+on the host.
